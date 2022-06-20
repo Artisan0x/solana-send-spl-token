@@ -69,8 +69,8 @@ export async function getOrCreateAssociatedTokenAccount(
     }
 
     console.log({ account })
-    if (!account.mint.equals(mint.toBuffer())) throw Error('TokenInvalidMintError')
-    if (!account.owner.equals(owner.toBuffer())) throw new Error('TokenInvalidOwnerError')
+    if (!account.mint.equals(mint)) throw Error('TokenInvalidMintError')
+    if (!account?.owner?.equals(owner)) throw new Error('TokenInvalidOwnerError')
 
     return account
 }
